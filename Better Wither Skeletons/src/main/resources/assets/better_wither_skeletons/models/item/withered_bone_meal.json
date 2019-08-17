@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "better_wither_skeletons:item/withered_bone_meal"
+  }
+}
