@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:poppy"
+    },
+    {
+      "item": "better_wither_skeletons:withered_bone_meal"
+    }
+  ],
+  "result": {
+    "item": "minecraft:wither_rose"
+  }
+}
