@@ -1,4 +1,4 @@
-package net.smushytaco.better_wither_skeletons
+package com.smushytaco.better_wither_skeletons
 
 import net.fabricmc.api.ModInitializer
 import net.fabricmc.fabric.api.block.FabricBlockSettings
@@ -7,15 +7,15 @@ import net.fabricmc.fabric.api.loot.v1.event.LootTableLoadingCallback
 import net.minecraft.block.*
 import net.minecraft.block.dispenser.FallibleItemDispenserBehavior
 import net.minecraft.item.*
+import net.minecraft.loot.ConstantLootTableRange
+import net.minecraft.loot.condition.RandomChanceWithLootingLootCondition
+import net.minecraft.loot.entry.ItemEntry
+import net.minecraft.loot.function.SetCountLootFunction
 import net.minecraft.util.ActionResult
 import net.minecraft.util.Identifier
 import net.minecraft.util.math.BlockPointer
 import net.minecraft.util.math.Direction
 import net.minecraft.util.registry.Registry
-import net.minecraft.world.loot.ConstantLootTableRange
-import net.minecraft.world.loot.condition.RandomChanceWithLootingLootCondition
-import net.minecraft.world.loot.entry.ItemEntry
-import net.minecraft.world.loot.function.SetCountLootFunction
 import kotlin.random.Random
 import net.minecraft.item.ItemStack
 import net.minecraft.block.Blocks
