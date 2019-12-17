@@ -9,7 +9,8 @@
     "SmushyTaco"
   ],
   "contact": {
-    "homepage": "https://www.smushytaco.com/"
+    "homepage": "https://www.smushytaco.com/",
+    "sources": "https://github.com/realSmushyTaco/Better-Wither-Skeletons/"
   },
 
   "license": "GNU Lesser General Public License version 3 (LGPLv3)",
@@ -20,14 +21,15 @@
     "main": [
       {
         "adapter": "kotlin",
-        "value": "net.smushytaco.better_wither_skeletons.BetterWitherSkeletons"
+        "value": "com.smushytaco.better_wither_skeletons.BetterWitherSkeletons"
       }
     ]
   },
   "depends": {
-    "fabricloader": ">=0.4.8",
+    "fabricloader": ">=0.7.2",
     "fabric": "*",
-    "fabric-language-kotlin": "*"
+    "fabric-language-kotlin": "*",
+    "minecraft": "1.15.x"
   },
   "suggests": {
     "flamingo": "*"
