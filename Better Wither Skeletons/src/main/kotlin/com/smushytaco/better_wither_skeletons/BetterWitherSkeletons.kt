@@ -1,7 +1,7 @@
 package com.smushytaco.better_wither_skeletons
 
 import net.fabricmc.api.ModInitializer
-import net.fabricmc.fabric.api.block.FabricBlockSettings
+import net.fabricmc.fabric.api.`object`.builder.v1.block.FabricBlockSettings
 import net.fabricmc.fabric.api.loot.v1.FabricLootPoolBuilder
 import net.fabricmc.fabric.api.loot.v1.event.LootTableLoadingCallback
 import net.minecraft.block.*
@@ -38,11 +38,11 @@ object BetterWitherSkeletons : ModInitializer {
             if ("minecraft:entities/wither_skeleton" == id.toString()) {
                 val lootFunction =
                     SetCountLootFunction.builder(ConstantLootTableRange(1))
-                        .withCondition(RandomChanceWithLootingLootCondition.builder(5.0F, 2.5F))
+                        .conditionally(RandomChanceWithLootingLootCondition.builder(5.0F, 2.5F))
                 val poolBuilder = FabricLootPoolBuilder.builder()
-                    .withRolls(ConstantLootTableRange.create(1))
-                    .withEntry(ItemEntry.builder(WITHERED_BONE).withFunction(lootFunction))
-                supplier.withPool(poolBuilder)
+                    .rolls(ConstantLootTableRange.create(1))
+                    .with(ItemEntry.builder(WITHERED_BONE).apply(lootFunction))
+                supplier.pool(poolBuilder)
             }
         })
     }
@@ -52,15 +52,18 @@ object BetterWitherSkeletons : ModInitializer {
     private val WITHERED_BONE_MEAL = WitheredBoneMeal(Item.Settings().group(BETTER_WITHER_SKELETONS_GROUP))
     private val WITHERED_BONE = Item(Item.Settings().group(BETTER_WITHER_SKELETONS_GROUP))
 
-    private val WITHERED_BONE_BLOCK = PillarBlock(FabricBlockSettings.of(Material.STONE, MaterialColor.SAND).strength(2.0F, 2.0F).build())
+    private val WITHERED_BONE_BLOCK = PillarBlock(FabricBlockSettings.of(Material.STONE, MaterialColor.SAND).strength(2.0F, 2.0F))
 }
 
 class WitheredBoneMeal(settings: Settings) : Item(settings) {
     override fun useOnBlock(itemUsageContext_1: ItemUsageContext): ActionResult {
-        return if (itemUsageContext_1.world.getBlockState(itemUsageContext_1.blockPos).block == Blocks.NETHERRACK && itemUsageContext_1.world.getBlockState(itemUsageContext_1.blockPos.up()).block == Blocks.AIR) {
+        return if (itemUsageContext_1.world.getBlockState(itemUsageContext_1.blockPos).block == Blocks.WARPED_NYLIUM && itemUsageContext_1.world.getBlockState(itemUsageContext_1.blockPos.up()).block == Blocks.AIR ||
+            itemUsageContext_1.world.getBlockState(itemUsageContext_1.blockPos).block == Blocks.CRIMSON_NYLIUM && itemUsageContext_1.world.getBlockState(itemUsageContext_1.blockPos.up()).block == Blocks.AIR) {
             when(Random.nextInt(11)) {
-                in 0..4 -> itemUsageContext_1.world.setBlockState(itemUsageContext_1.blockPos.up(), Blocks.BROWN_MUSHROOM.defaultState)
-                in 5..9 -> itemUsageContext_1.world.setBlockState(itemUsageContext_1.blockPos.up(), Blocks.RED_MUSHROOM.defaultState)
+                in 0..2 -> itemUsageContext_1.world.setBlockState(itemUsageContext_1.blockPos.up(), Blocks.WARPED_FUNGUS.defaultState)
+                in 3..4 -> itemUsageContext_1.world.setBlockState(itemUsageContext_1.blockPos.up(), Blocks.BROWN_MUSHROOM.defaultState)
+                in 5..7 -> itemUsageContext_1.world.setBlockState(itemUsageContext_1.blockPos.up(), Blocks.CRIMSON_FUNGUS.defaultState)
+                in 8..9 -> itemUsageContext_1.world.setBlockState(itemUsageContext_1.blockPos.up(), Blocks.RED_MUSHROOM.defaultState)
                 10 -> itemUsageContext_1.world.setBlockState(itemUsageContext_1.blockPos.up(), Blocks.WITHER_ROSE.defaultState)
                 else -> itemUsageContext_1.world.setBlockState(itemUsageContext_1.blockPos.up(), Blocks.WITHER_ROSE.defaultState)
             }
@@ -75,16 +78,19 @@ class WitheredBoneMeal(settings: Settings) : Item(settings) {
 object WitheredBoneMealDispenserBehavior : FallibleItemDispenserBehavior() {
     override fun dispenseSilently(blockPointer_1: BlockPointer, itemStack_1: ItemStack): ItemStack {
         val direction: Direction = blockPointer_1.blockState.get(DispenserBlock.FACING)
-        success = false
-        if (blockPointer_1.world.getBlockState(blockPointer_1.blockPos.offset(direction).down()).block == Blocks.NETHERRACK && blockPointer_1.world.getBlockState(blockPointer_1.blockPos.offset(direction)).block == Blocks.AIR) {
+        isSuccess = false
+        if (blockPointer_1.world.getBlockState(blockPointer_1.blockPos.offset(direction).down()).block == Blocks.WARPED_NYLIUM && blockPointer_1.world.getBlockState(blockPointer_1.blockPos.offset(direction)).block == Blocks.AIR ||
+            blockPointer_1.world.getBlockState(blockPointer_1.blockPos.offset(direction).down()).block == Blocks.CRIMSON_NYLIUM && blockPointer_1.world.getBlockState(blockPointer_1.blockPos.offset(direction)).block == Blocks.AIR) {
             when(Random.nextInt(11)) {
-                in 0..4 -> blockPointer_1.world.setBlockState(blockPointer_1.blockPos.offset(direction), Blocks.BROWN_MUSHROOM.defaultState)
-                in 5..9 -> blockPointer_1.world.setBlockState(blockPointer_1.blockPos.offset(direction), Blocks.RED_MUSHROOM.defaultState)
+                in 0..2 -> blockPointer_1.world.setBlockState(blockPointer_1.blockPos.offset(direction), Blocks.WARPED_FUNGUS.defaultState)
+                in 3..4 -> blockPointer_1.world.setBlockState(blockPointer_1.blockPos.offset(direction), Blocks.BROWN_MUSHROOM.defaultState)
+                in 5..7 -> blockPointer_1.world.setBlockState(blockPointer_1.blockPos.offset(direction), Blocks.CRIMSON_FUNGUS.defaultState)
+                in 8..9 -> blockPointer_1.world.setBlockState(blockPointer_1.blockPos.offset(direction), Blocks.RED_MUSHROOM.defaultState)
                 10 -> blockPointer_1.world.setBlockState(blockPointer_1.blockPos.offset(direction), Blocks.WITHER_ROSE.defaultState)
                 else -> blockPointer_1.world.setBlockState(blockPointer_1.blockPos.offset(direction), Blocks.WITHER_ROSE.defaultState)
             }
             itemStack_1.decrement(1)
-            success = true
+            isSuccess = true
         }
         return itemStack_1
     }
