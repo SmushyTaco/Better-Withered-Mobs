@@ -22,8 +22,6 @@ import net.minecraft.block.Blocks
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder
 import net.minecraft.item.ItemGroup
 
-
-
 @Suppress("unused")
 object BetterWitherSkeletons : ModInitializer {
 
