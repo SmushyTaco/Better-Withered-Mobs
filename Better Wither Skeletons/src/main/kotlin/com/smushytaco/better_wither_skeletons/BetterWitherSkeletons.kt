@@ -24,7 +24,6 @@ import net.minecraft.item.ItemGroup
 
 @Suppress("unused")
 object BetterWitherSkeletons : ModInitializer {
-
     override fun onInitialize() {
         Registry.register(Registry.BLOCK, Identifier("better_wither_skeletons", "withered_bone_block"), WITHERED_BONE_BLOCK)
         Registry.register(Registry.ITEM, Identifier("better_wither_skeletons", "withered_bone_block"), BlockItem(WITHERED_BONE_BLOCK, Item.Settings().group(
