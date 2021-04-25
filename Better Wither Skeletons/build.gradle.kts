@@ -26,18 +26,18 @@ dependencies {
     val fabricKotlinVersion: String by project
     modImplementation("net.fabricmc:fabric-language-kotlin:$fabricKotlinVersion")
 }
-val javaVersion = JavaVersion.VERSION_1_8.toString()
-tasks.withType<JavaCompile> {
-    options.encoding = "UTF-8"
-    sourceCompatibility = javaVersion
-    targetCompatibility = javaVersion
-}
-tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-    kotlinOptions { jvmTarget = javaVersion }
-    sourceCompatibility = javaVersion
-    targetCompatibility = javaVersion
-}
 tasks {
+    val javaVersion = JavaVersion.VERSION_1_8.toString()
+    withType<JavaCompile> {
+        options.encoding = "UTF-8"
+        sourceCompatibility = javaVersion
+        targetCompatibility = javaVersion
+    }
+    withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+        kotlinOptions { jvmTarget = javaVersion }
+        sourceCompatibility = javaVersion
+        targetCompatibility = javaVersion
+    }
     jar { from("LICENSE") }
     processResources {
         duplicatesStrategy = DuplicatesStrategy.INCLUDE
