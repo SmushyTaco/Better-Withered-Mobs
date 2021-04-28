@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "axis=y":  { "model": "better_withered_mobs:block/withered_bone_block" },
+    "axis=z":   { "model": "better_withered_mobs:block/withered_bone_block", "x": 90 },
+    "axis=x":   { "model": "better_withered_mobs:block/withered_bone_block", "x": 90, "y": 90 }
+  }
+}
