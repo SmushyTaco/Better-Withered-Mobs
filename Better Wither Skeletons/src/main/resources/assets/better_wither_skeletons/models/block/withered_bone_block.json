@@ -1,8 +1,0 @@
-{
-  "parent": "block/cube_bottom_top",
-  "textures": {
-    "bottom": "better_wither_skeletons:block/withered_bone_block_top_and_bottom",
-    "top": "better_wither_skeletons:block/withered_bone_block_top_and_bottom",
-    "side": "better_wither_skeletons:block/withered_bone_block_sides"
-  }
-}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "WWW",
+    "WWW",
+    "WWW"
+  ],
+  "key": {
+    "W": {
+      "item": "better_withered_mobs:withered_bone_block"
+    }
+  },
+  "result": {
+    "item": "minecraft:wither_skeleton_skull"
+  }
+}

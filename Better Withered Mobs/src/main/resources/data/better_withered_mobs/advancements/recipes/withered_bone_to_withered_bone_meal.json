@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "better_withered_mobs:withered_bone_meal_1"
+    ]
+  },
+  "criteria": {
+    "has_withered_bone": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "better_withered_mobs:withered_bone"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "better_withered_mobs:withered_bone_meal_1"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_withered_bone",
+      "has_the_recipe"
+    ]
+  ]
+}

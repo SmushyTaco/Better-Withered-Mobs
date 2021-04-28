@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "better_withered_mobs",
+  "version": "${version}",
+  "name": "Better Withered Mobs",
+  "description": "This mod adds withered bones, withered bone meal, and withered bone blocks!",
+  "authors": [
+    "SmushyTaco"
+  ],
+  "contact": {
+    "homepage": "https://www.smushytaco.com/",
+    "sources": "https://github.com/realSmushyTaco/Better-Withered-Mobs"
+  },
+  "license": "GNU Lesser General Public License version 3 (LGPLv3)",
+  "icon": "assets/better_withered_mobs/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      {
+        "adapter": "kotlin",
+        "value": "com.smushytaco.better_withered_mobs.BetterWitheredMobs"
+      }
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.11.3",
+    "fabric": "*",
+    "fabric-language-kotlin": ">=1.5.0+kotlin.1.4.31",
+    "minecraft": "1.16.x"
+  },
+  "suggests": {
+    "flamingo": "*"
+  }
+}
