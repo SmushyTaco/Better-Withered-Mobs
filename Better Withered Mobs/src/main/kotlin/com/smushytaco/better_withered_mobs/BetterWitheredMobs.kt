@@ -1,4 +1,5 @@
 package com.smushytaco.better_withered_mobs
+import com.smushytaco.better_withered_mobs.mixin.BrewingRecipeRegistryAccessor.invokeRegisterPotionRecipe
 import net.fabricmc.api.ModInitializer
 import net.fabricmc.fabric.api.`object`.builder.v1.block.FabricBlockSettings
 import net.fabricmc.fabric.api.loot.v1.FabricLootPoolBuilder
@@ -21,10 +22,14 @@ import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder
 import net.minecraft.item.ItemGroup
 import net.minecraft.loot.UniformLootTableRange
 import net.minecraft.loot.function.LootingEnchantLootFunction
+import net.minecraft.potion.Potions
 @Suppress("unused")
 object BetterWitheredMobs : ModInitializer {
     private const val MOD_ID = "better_withered_mobs"
     override fun onInitialize() {
+        invokeRegisterPotionRecipe(Potions.AWKWARD, Items.WITHER_ROSE, PotionOfDecay.POTION_OF_DECAY)
+        invokeRegisterPotionRecipe(PotionOfDecay.POTION_OF_DECAY, Items.REDSTONE, PotionOfDecay.LONG_POTION_OF_DECAY)
+        invokeRegisterPotionRecipe(PotionOfDecay.POTION_OF_DECAY, Items.GLOWSTONE_DUST, PotionOfDecay.STRONG_POTION_OF_DECAY)
         Registry.register(Registry.BLOCK, Identifier(MOD_ID, "withered_bone_block"), WITHERED_BONE_BLOCK)
         Registry.register(Registry.ITEM, Identifier(MOD_ID, "withered_bone_block"), BlockItem(WITHERED_BONE_BLOCK, Item.Settings()
             .group(BETTER_WITHERED_MOBS_GROUP)))

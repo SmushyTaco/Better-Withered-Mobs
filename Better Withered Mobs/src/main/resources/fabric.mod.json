@@ -3,7 +3,7 @@
   "id": "better_withered_mobs",
   "version": "${version}",
   "name": "Better Withered Mobs",
-  "description": "This mod adds withered bones, withered bone meal, and withered bone blocks!",
+  "description": "This mod adds Withered Bones, Withered Bone Meal, Withered Bone Blocks, and a Potion of Decay!",
   "authors": [
     "SmushyTaco"
   ],
@@ -22,6 +22,9 @@
       }
     ]
   },
+  "mixins": [
+    "better_withered_mobs.mixins.json"
+  ],
   "depends": {
     "fabricloader": ">=0.11.3",
     "fabric": "*",

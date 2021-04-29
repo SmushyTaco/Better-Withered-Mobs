@@ -2,5 +2,9 @@
   "item.better_withered_mobs.withered_bone": "Withered Bone",
   "item.better_withered_mobs.withered_bone_meal": "Withered Bone Meal",
   "block.better_withered_mobs.withered_bone_block": "Withered Bone Block",
+  "item.minecraft.potion.effect.potion_of_decay": "Potion of Decay",
+  "item.minecraft.splash_potion.effect.potion_of_decay": "Splash Potion of Decay",
+  "item.minecraft.tipped_arrow.effect.potion_of_decay": "Arrow of Decay",
+  "item.minecraft.lingering_potion.effect.potion_of_decay": "Lingering Potion of Decay",
   "itemGroup.better_withered_mobs.items": "Better Withered Mobs"
 }
