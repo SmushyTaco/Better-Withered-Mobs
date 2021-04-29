@@ -7,5 +7,6 @@ import net.minecraft.recipe.BrewingRecipeRegistry;
 @Mixin(BrewingRecipeRegistry.class)
 public interface BrewingRecipeRegistryAccessor {
     @Invoker
-    public static void invokeRegisterPotionRecipe(Potion in, Item ingredient, Potion result) {}
+    @SuppressWarnings("unused")
+    static void invokeRegisterPotionRecipe(Potion in, Item ingredient, Potion result) {}
 }

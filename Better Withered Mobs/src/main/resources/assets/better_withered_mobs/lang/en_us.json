@@ -6,5 +6,6 @@
   "item.minecraft.splash_potion.effect.potion_of_decay": "Splash Potion of Decay",
   "item.minecraft.tipped_arrow.effect.potion_of_decay": "Arrow of Decay",
   "item.minecraft.lingering_potion.effect.potion_of_decay": "Lingering Potion of Decay",
+  "enchantment.better_withered_mobs.withering": "Withering",
   "itemGroup.better_withered_mobs.items": "Better Withered Mobs"
 }
