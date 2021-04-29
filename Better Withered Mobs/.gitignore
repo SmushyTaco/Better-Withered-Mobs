@@ -1,17 +1,12 @@
-# gradle
-
+# Gradle
 .gradle/
 build/
 out/
-
-# idea
-
+# Idea
 .idea/
 *.iml
 *.ipr
 *.iws
-
-# fabric
-
+# Fabric
 run/
 minecraft/
