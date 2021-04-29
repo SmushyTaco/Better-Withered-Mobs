@@ -3,7 +3,8 @@
   "package": "com.smushytaco.better_withered_mobs.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "BrewingRecipeRegistryAccessor"
+    "BrewingRecipeRegistryAccessor",
+    "FireproofAccessor"
   ],
   "injectors": {
     "defaultRequire": 1
