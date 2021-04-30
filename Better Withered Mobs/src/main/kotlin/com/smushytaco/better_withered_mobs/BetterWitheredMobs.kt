@@ -13,10 +13,7 @@ import net.fabricmc.fabric.api.`object`.builder.v1.block.FabricBlockSettings
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder
 import net.fabricmc.fabric.api.loot.v1.FabricLootPoolBuilder
 import net.fabricmc.fabric.api.loot.v1.event.LootTableLoadingCallback
-import net.minecraft.block.DispenserBlock
-import net.minecraft.block.Material
-import net.minecraft.block.MaterialColor
-import net.minecraft.block.PillarBlock
+import net.minecraft.block.*
 import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
 import net.minecraft.item.Items
@@ -24,6 +21,7 @@ import net.minecraft.loot.UniformLootTableRange
 import net.minecraft.loot.entry.ItemEntry
 import net.minecraft.loot.function.LootingEnchantLootFunction
 import net.minecraft.loot.function.SetCountLootFunction
+import net.minecraft.sound.BlockSoundGroup
 import net.minecraft.util.Identifier
 import net.minecraft.util.registry.Registry
 object BetterWitheredMobs : ModInitializer {
@@ -67,5 +65,6 @@ object BetterWitheredMobs : ModInitializer {
         .build(Identifier(MOD_ID, "items")) { ItemStack(WITHERED_BONE_BLOCK) }
     private val WITHERED_BONE_MEAL = WitheredBoneMeal(Item.Settings().group(BETTER_WITHERED_MOBS_GROUP))
     private val WITHERED_BONE = FireproofItem(Item.Settings().group(BETTER_WITHERED_MOBS_GROUP))
-    private val WITHERED_BONE_BLOCK = PillarBlock(FabricBlockSettings.of(Material.STONE, MaterialColor.SAND).strength(2.0F, 2.0F))
+    private val WITHERED_BONE_BLOCK = PillarBlock(FabricBlockSettings.of(Material.STONE, MaterialColor.SAND)
+        .requiresTool().strength(2.0F).sounds(BlockSoundGroup.BONE))
 }
