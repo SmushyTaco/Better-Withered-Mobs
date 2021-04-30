@@ -17,7 +17,6 @@ import net.minecraft.loot.function.LootingEnchantLootFunction
 import net.minecraft.loot.function.SetCountLootFunction
 import net.minecraft.util.Identifier
 import net.minecraft.util.registry.Registry
-@Suppress("unused")
 object BetterWitheredMobs : ModInitializer {
     private const val MOD_ID = "better_withered_mobs"
     override fun onInitialize() {
@@ -30,7 +29,7 @@ object BetterWitheredMobs : ModInitializer {
         Registry.register(Registry.ITEM, Identifier(MOD_ID, "withered_bone"), WITHERED_BONE)
         Registry.register(Registry.ITEM, Identifier(MOD_ID, "withered_bone_meal"), WITHERED_BONE_MEAL)
         DispenserBlock.registerBehavior(WITHERED_BONE_MEAL, WitheredBoneMealDispenserBehavior)
-        Registry.register(Registry.ENCHANTMENT, Identifier(MOD_ID, "withering"), WitheringEnchantment())
+        Registry.register(Registry.ENCHANTMENT, Identifier(MOD_ID, "withering"), WITHERING_ENCHANTMENT)
 
         LootTableLoadingCallback.EVENT.register(LootTableLoadingCallback { _, _, id, supplier, _ ->
             if ("minecraft:entities/wither_skeleton" == id.toString() ||
@@ -47,6 +46,7 @@ object BetterWitheredMobs : ModInitializer {
             }
         })
     }
+    val WITHERING_ENCHANTMENT = WitheringEnchantment()
     private val BETTER_WITHERED_MOBS_GROUP = FabricItemGroupBuilder
         .build(Identifier(MOD_ID, "items")) { ItemStack(WITHERED_BONE_BLOCK) }
     private val WITHERED_BONE_MEAL = WitheredBoneMeal(Item.Settings().group(BETTER_WITHERED_MOBS_GROUP))
