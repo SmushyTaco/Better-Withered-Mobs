@@ -3,12 +3,13 @@
   "id": "better_withered_mobs",
   "version": "${version}",
   "name": "Better Withered Mobs",
-  "description": "This mod adds Withered Bones, Withered Bone Meal, Withered Bone Blocks, a Potion of Decay, and a Withering enchantment! Wither Skeletons spawn with swords with the Withering enchantment of a random level.",
+  "description": "This mod adds Withered Bones, Withered Bone Meal, Withered Bone Blocks, a Potion of Decay, and a Withering enchantment! Wither Skeletons spawn with swords with the Withering enchantment of a random level (This can be disabled in the config).",
   "authors": [
     "SmushyTaco"
   ],
   "contact": {
     "homepage": "https://www.smushytaco.com/",
+    "issues": "https://www.curseforge.com/minecraft/mc-mods/better-wither-skeletons/issues/",
     "sources": "https://github.com/realSmushyTaco/Better-Withered-Mobs"
   },
   "license": "GNU Lesser General Public License version 3 (LGPLv3)",
@@ -20,6 +21,9 @@
         "adapter": "kotlin",
         "value": "com.smushytaco.better_withered_mobs.BetterWitheredMobs"
       }
+    ],
+    "modmenu": [
+      "com.smushytaco.better_withered_mobs.configuration_support.ModMenuIntegration"
     ]
   },
   "mixins": [
@@ -29,9 +33,8 @@
     "fabricloader": ">=0.11.3",
     "fabric": "*",
     "fabric-language-kotlin": ">=1.5.0+kotlin.1.4.31",
-    "minecraft": "1.16.x"
-  },
-  "suggests": {
-    "flamingo": "*"
+    "minecraft": "1.16.x",
+    "cloth-config2": ">=4.11.19",
+    "modmenu": ">=1.9.0+build.27"
   }
 }

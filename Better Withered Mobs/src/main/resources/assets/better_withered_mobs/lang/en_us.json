@@ -7,5 +7,7 @@
   "item.minecraft.tipped_arrow.effect.potion_of_decay": "Arrow of Decay",
   "item.minecraft.lingering_potion.effect.potion_of_decay": "Lingering Potion of Decay",
   "enchantment.better_withered_mobs.withering": "Withering",
-  "itemGroup.better_withered_mobs.items": "Better Withered Mobs"
+  "itemGroup.better_withered_mobs.items": "Better Withered Mobs",
+  "text.autoconfig.better_withered_mobs.title": "Better Withered Mobs Configuration",
+  "text.autoconfig.better_withered_mobs.option.witherSkeletonsSpawnWithWitheringEnchantedStoneSwords": "Wither Skeletons Spawn With Withering Enchanted Stone Swords"
 }
