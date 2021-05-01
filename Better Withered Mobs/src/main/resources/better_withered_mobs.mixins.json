@@ -5,6 +5,10 @@
   "mixins": [
     "BrewingRecipeRegistryAccessor",
     "FireproofAccessor",
+    "ItemEntryItemAccessor",
+    "LootManagerInject",
+    "LootPoolEntriesAccessor",
+    "LootTablePoolsAccessor",
     "WitherSkeletonEntityInitEquipment"
   ],
   "injectors": {
