@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import java.util.Map;
 @Mixin(LootManager.class)
-public class LootManagerInject {
+public abstract class LootManagerInject {
     @Shadow
     private Map<Identifier, LootTable> tables;
     @Inject(method = "apply", at = @At("RETURN"))

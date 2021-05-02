@@ -9,6 +9,7 @@
     "LootManagerInject",
     "LootPoolEntriesAccessor",
     "LootTablePoolsAccessor",
+    "WitherRoseBlockInject",
     "WitherSkeletonEntityInitEquipment"
   ],
   "injectors": {
