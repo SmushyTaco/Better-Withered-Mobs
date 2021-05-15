@@ -1,4 +1,4 @@
-package com.smushytaco.better_withered_mobs.mixin;
+package com.smushytaco.better_withered_mobs.mixins;
 import com.google.common.collect.ImmutableMap;
 import com.google.gson.JsonObject;
 import com.smushytaco.better_withered_mobs.mixin_logic.LootManagerInjectLogic;

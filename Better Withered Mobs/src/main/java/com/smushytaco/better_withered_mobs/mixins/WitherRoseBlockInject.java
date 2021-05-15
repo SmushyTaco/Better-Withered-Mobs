@@ -1,4 +1,4 @@
-package com.smushytaco.better_withered_mobs.mixin;
+package com.smushytaco.better_withered_mobs.mixins;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.WitherRoseBlock;

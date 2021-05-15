@@ -1,5 +1,5 @@
 package com.smushytaco.better_withered_mobs.fireproof_items
-import com.smushytaco.better_withered_mobs.mixin.FireproofAccessor
+import com.smushytaco.better_withered_mobs.mixins.FireproofAccessor
 import net.minecraft.item.Item
 object FireproofSyntacticSugar {
     var Item.fireproof

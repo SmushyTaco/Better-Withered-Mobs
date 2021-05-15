@@ -1,5 +1,5 @@
 package com.smushytaco.better_withered_mobs
-import com.smushytaco.better_withered_mobs.mixin.BrewingRecipeRegistryAccessor
+import com.smushytaco.better_withered_mobs.mixins.BrewingRecipeRegistryAccessor
 import net.minecraft.entity.effect.StatusEffectInstance
 import net.minecraft.entity.effect.StatusEffects
 import net.minecraft.item.Items
