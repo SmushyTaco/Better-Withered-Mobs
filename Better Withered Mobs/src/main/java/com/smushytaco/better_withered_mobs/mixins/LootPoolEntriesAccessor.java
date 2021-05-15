@@ -1,4 +1,4 @@
-package com.smushytaco.better_withered_mobs.mixin;
+package com.smushytaco.better_withered_mobs.mixins;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.entry.LootPoolEntry;
 import org.spongepowered.asm.mixin.Mixin;

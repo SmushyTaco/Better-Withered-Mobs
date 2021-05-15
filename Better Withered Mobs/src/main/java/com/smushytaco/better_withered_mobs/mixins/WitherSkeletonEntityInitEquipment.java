@@ -1,4 +1,4 @@
-package com.smushytaco.better_withered_mobs.mixin;
+package com.smushytaco.better_withered_mobs.mixins;
 import com.smushytaco.better_withered_mobs.BetterWitheredMobs;
 import com.smushytaco.better_withered_mobs.mixin_logic.WitherSkeletonEntityInitEquipmentLogic;
 import net.minecraft.entity.EntityType;

@@ -1,7 +1,7 @@
 package com.smushytaco.better_withered_mobs.loot_table_modification
-import com.smushytaco.better_withered_mobs.mixin.ItemEntryItemAccessor
-import com.smushytaco.better_withered_mobs.mixin.LootPoolEntriesAccessor
-import com.smushytaco.better_withered_mobs.mixin.LootTablePoolsAccessor
+import com.smushytaco.better_withered_mobs.mixins.ItemEntryItemAccessor
+import com.smushytaco.better_withered_mobs.mixins.LootPoolEntriesAccessor
+import com.smushytaco.better_withered_mobs.mixins.LootTablePoolsAccessor
 import net.minecraft.item.Item
 import net.minecraft.loot.LootPool
 import net.minecraft.loot.LootTable
