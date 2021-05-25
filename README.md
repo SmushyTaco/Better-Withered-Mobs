@@ -1,2 +1,4 @@
 # Better Withered Mobs
-Mod information: https://www.curseforge.com/minecraft/mc-mods/better-withered-mobs/
+CurseForge: https://www.curseforge.com/minecraft/mc-mods/better-withered-mobs/
+
+Modrinth: https://modrinth.com/mod/better-withered-mobs/
