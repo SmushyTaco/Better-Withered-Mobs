@@ -1,10 +1,10 @@
 package com.smushytaco.better_withered_mobs.bone_meal
-import com.smushytaco.better_withered_mobs.fireproof_items.FireproofItem
 import net.minecraft.block.Blocks
+import net.minecraft.item.Item
 import net.minecraft.item.ItemUsageContext
 import net.minecraft.util.ActionResult
 import kotlin.random.Random
-class WitheredBoneMeal(settings: Settings) : FireproofItem(settings) {
+class WitheredBoneMeal(settings: Settings) : Item(settings) {
     override fun useOnBlock(itemUsageContext_1: ItemUsageContext): ActionResult {
         return if (itemUsageContext_1.world.getBlockState(itemUsageContext_1.blockPos).block == Blocks.WARPED_NYLIUM && itemUsageContext_1.world.getBlockState(itemUsageContext_1.blockPos.up()).block == Blocks.AIR ||
             itemUsageContext_1.world.getBlockState(itemUsageContext_1.blockPos).block == Blocks.CRIMSON_NYLIUM && itemUsageContext_1.world.getBlockState(itemUsageContext_1.blockPos.up()).block == Blocks.AIR
