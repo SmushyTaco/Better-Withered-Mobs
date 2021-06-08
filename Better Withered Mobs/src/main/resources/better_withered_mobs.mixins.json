@@ -1,16 +1,16 @@
 {
   "required": true,
   "package": "com.smushytaco.better_withered_mobs.mixins",
-  "compatibilityLevel": "JAVA_8",
+  "compatibilityLevel": "JAVA_16",
   "mixins": [
     "BrewingRecipeRegistryAccessor",
-    "FireproofAccessor",
     "ItemEntryItemAccessor",
     "LootManagerInject",
     "LootPoolEntriesAccessor",
     "LootTablePoolsAccessor",
     "WitherRoseBlockInject",
-    "WitherSkeletonEntityInitEquipment"
+    "WitherSkeletonEntityInitEquipment",
+    "WitherSkeletonSkullIsFireproof"
   ],
   "injectors": {
     "defaultRequire": 1
