@@ -1,4 +1,11 @@
 {
+  "text.autoconfig.better_withered_mobs.title": "Better Withered Mobs Configuration",
+  "text.autoconfig.better_withered_mobs.option.witherSkeletonsSpawnWithWitheringEnchantedStoneSwords": "Wither Skeletons Spawn With Withering Enchanted Stone Swords",
+  "text.autoconfig.better_withered_mobs.option.witheredMobsDontDropRegularBones": "Withered Mobs Don't Drop Regular Bones",
+  "text.autoconfig.better_withered_mobs.option.witheringEnchantmentCanBeAnviledOntoAxes": "Withering Enchantment Can Be Anviled Onto Axes",
+  "text.autoconfig.better_withered_mobs.option.witheringEnchantmentCanBeAnviledOntoTridents": "Withering Enchantment Can Be Anviled Onto Tridents",
+
+  "itemGroup.better_withered_mobs.items": "Better Withered Mobs",
   "item.better_withered_mobs.withered_bone": "Withered Bone",
   "item.better_withered_mobs.withered_bone_meal": "Withered Bone Meal",
   "block.better_withered_mobs.withered_bone_block": "Withered Bone Block",
@@ -6,9 +13,5 @@
   "item.minecraft.splash_potion.effect.potion_of_decay": "Splash Potion of Decay",
   "item.minecraft.tipped_arrow.effect.potion_of_decay": "Arrow of Decay",
   "item.minecraft.lingering_potion.effect.potion_of_decay": "Lingering Potion of Decay",
-  "enchantment.better_withered_mobs.withering": "Withering",
-  "itemGroup.better_withered_mobs.items": "Better Withered Mobs",
-  "text.autoconfig.better_withered_mobs.title": "Better Withered Mobs Configuration",
-  "text.autoconfig.better_withered_mobs.option.witherSkeletonsSpawnWithWitheringEnchantedStoneSwords": "Wither Skeletons Spawn With Withering Enchanted Stone Swords",
-  "text.autoconfig.better_withered_mobs.option.witheredMobsDontDropRegularBones": "Withered Mobs Don't Drop Regular Bones"
+  "enchantment.better_withered_mobs.withering": "Withering"
 }

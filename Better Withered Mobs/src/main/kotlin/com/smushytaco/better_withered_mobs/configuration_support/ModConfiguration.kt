@@ -9,4 +9,8 @@ class ModConfiguration: ConfigData {
     val witherSkeletonsSpawnWithWitheringEnchantedStoneSwords = true
     @Comment("Default value is yes. If set to yes withered mobs won't drop regular Bones and will only drop Withered Bones. If set to no they'll drop both. After modifying this value if you're currently in a world you'll need to relaunch the world for things to take effect.")
     val witheredMobsDontDropRegularBones = true
+    @Comment("Default value is yes. If set to yes you'll be able to anvil the withering enchantment onto axes. If set to no you won't be able to.")
+    val witheringEnchantmentCanBeAnviledOntoAxes = true
+    @Comment("Default value is yes. If set to yes you'll be able to anvil the withering enchantment onto tridents. If set to no you won't be able to.")
+    val witheringEnchantmentCanBeAnviledOntoTridents = true
 }
