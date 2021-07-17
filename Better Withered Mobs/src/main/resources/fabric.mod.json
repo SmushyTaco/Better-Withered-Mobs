@@ -12,7 +12,6 @@
     "issues": "https://www.curseforge.com/minecraft/mc-mods/better-wither-skeletons/issues/",
     "sources": "https://github.com/realSmushyTaco/Better-Withered-Mobs"
   },
-  "accessWidener" : "better_withered_mobs.accesswidener",
   "license": "GNU Lesser General Public License version 3 (LGPLv3)",
   "icon": "assets/better_withered_mobs/icon.png",
   "environment": "*",
@@ -33,7 +32,7 @@
   "depends": {
     "fabricloader": ">=0.11.6",
     "fabric": "*",
-    "fabric-language-kotlin": ">=1.6.1+kotlin.1.5.10",
+    "fabric-language-kotlin": ">=1.6.2+kotlin.1.5.20",
     "minecraft": "1.17.x",
     "cloth-config2": ">=5.0.34"
   },
