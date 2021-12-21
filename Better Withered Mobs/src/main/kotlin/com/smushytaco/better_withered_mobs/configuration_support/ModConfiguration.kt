@@ -13,4 +13,8 @@ class ModConfiguration: ConfigData {
     val witheringEnchantmentCanBeAnviledOntoAxes = true
     @Comment("Default value is yes. If set to yes you'll be able to anvil the withering enchantment onto tridents. If set to no you won't be able to.")
     val witheringEnchantmentCanBeAnviledOntoTridents = true
+    @Comment("Default value is 5. This will determine the maximum level for the withering enchantment. If set to 0 or below the maximum level will be 1. Restart required for changes to take place.")
+    val maximumLevelForWitheringEnchantment = 5
+    @Comment("Default value is 60. This multiplier will determine how many ticks the withering enchantment will last for. This value will be multiplied with the level to determine the length of the withering effect given.")
+    val tickMultiplierForWitheringEnchantment = 60
 }
