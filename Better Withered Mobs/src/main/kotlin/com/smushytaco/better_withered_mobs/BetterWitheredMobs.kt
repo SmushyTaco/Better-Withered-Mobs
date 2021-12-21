@@ -78,7 +78,7 @@ object BetterWitheredMobs : ModInitializer {
                 val lootPoolListClone = lootManager.getTable(id).pools.toMutableList()
                 lootPoolListClone.add(poolBuilder.build())
                 lootManager.getTable(id).pools = lootPoolListClone.toTypedArray()
-                // Applies changes to loot table.
+                // This applies changes to loot table.
                 setter.set(lootManager.getTable(id))
             }
         })

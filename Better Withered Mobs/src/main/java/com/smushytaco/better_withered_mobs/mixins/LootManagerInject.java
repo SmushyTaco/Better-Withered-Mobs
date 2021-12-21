@@ -17,7 +17,7 @@ import java.util.Map;
 public abstract class LootManagerInject {
     @Shadow
     private Map<Identifier, LootTable> tables;
-    @Inject(method = "apply", at = @At("RETURN"))
+    @Inject(method = "apply*", at = @At("RETURN"))
     private void apply(Map<Identifier, JsonObject> objectMap, ResourceManager manager, Profiler profiler, CallbackInfo info) {
         LootManager lootManager = (LootManager) (Object) this;
         tables = ImmutableMap.copyOf(LootManagerInjectLogic.INSTANCE.invokeEarlyLootTableLoadingCallback(tables, manager, lootManager));
