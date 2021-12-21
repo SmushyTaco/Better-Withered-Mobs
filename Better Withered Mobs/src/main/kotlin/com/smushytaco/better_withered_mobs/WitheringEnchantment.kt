@@ -11,10 +11,10 @@ import net.minecraft.item.ItemStack
 import net.minecraft.item.TridentItem
 class WitheringEnchantment: Enchantment(Rarity.VERY_RARE, EnchantmentTarget.WEAPON, arrayOf(EquipmentSlot.MAINHAND)) {
     override fun getMinLevel() = 1
-    override fun getMaxLevel() = 5
+    override fun getMaxLevel() = BetterWitheredMobs.config.maximumLevelForWitheringEnchantment.coerceAtLeast(1)
     override fun onTargetDamaged(user: LivingEntity, target: Entity, level: Int) {
         if (target is LivingEntity) {
-            target.addStatusEffect(StatusEffectInstance(WITHER, 60 * level, level - 1))
+            target.addStatusEffect(StatusEffectInstance(WITHER, (BetterWitheredMobs.config.tickMultiplierForWitheringEnchantment.coerceAtLeast(1) * level).coerceAtLeast(1), level - 1))
         }
         super.onTargetDamaged(user, target, level)
     }
