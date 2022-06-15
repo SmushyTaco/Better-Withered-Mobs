@@ -1,0 +1,21 @@
+{
+  "text.autoconfig.better_withered_mobs.title": "Better Withered Mobs Konfigürasyon",
+  "text.autoconfig.better_withered_mobs.option.witherSkeletonsSpawnWithWitheringEnchantedStoneSwords": "Wither İskeletleri Solma İle Büyülenmiş Taş Kılıçlarla Doğar",
+  "text.autoconfig.better_withered_mobs.option.witheredMobsDontDropRegularBones": "Solmuş Canlılar Normal Kemik Düşürmez",
+  "text.autoconfig.better_withered_mobs.option.witheringEnchantmentCanBeAnviledOntoAxes": "Solma Büyüsü Anvil İle Baltalara Konulabilir",
+  "text.autoconfig.better_withered_mobs.option.witheringEnchantmentCanBeAnviledOntoTridents": "Solma Büyüsü Anvil İle Mızraklara Konulabilir",
+  "text.autoconfig.better_withered_mobs.option.maximumLevelForWitheringEnchantment": "Solma Büyüsü İçin Maksimumn Seviye",
+  "text.autoconfig.better_withered_mobs.option.tickMultiplierForWitheringEnchantment": "Solma Büyüsü İçin Tik Çarpanı",
+
+  "enchantment.better_withered_mobs.withering.desc": "Solma büyüsü bir canlıya vurduğunda o canlının Wither efekti almasını sağlar. Her Solma büyü leveli vurulan canlının wither etki süresini 3 saniye ve büyünün gücünü 1 arttırır. Büyü ayarlardan modifiye edilebilir!",
+
+  "itemGroup.better_withered_mobs.items": "Better Withered Mobs",
+  "item.better_withered_mobs.withered_bone": "Solmuş Kemik",
+  "item.better_withered_mobs.withered_bone_meal": "Solmuş Kemik Tozu",
+  "block.better_withered_mobs.withered_bone_block": "Solmuş Kemik Bloğu",
+  "item.minecraft.potion.effect.potion_of_decay": "Solma İksiri",
+  "item.minecraft.splash_potion.effect.potion_of_decay": "Patlayıcı Solma İksiri",
+  "item.minecraft.tipped_arrow.effect.potion_of_decay": "Solma Oku",
+  "item.minecraft.lingering_potion.effect.potion_of_decay": "Kalıcı Soluş İksiri",
+  "enchantment.better_withered_mobs.withering": "Solma"
+}
