@@ -1,7 +1,6 @@
 package com.smushytaco.better_withered_mobs.event
 import net.fabricmc.fabric.api.event.Event
 import net.fabricmc.fabric.api.event.EventFactory
-import net.fabricmc.fabric.api.loot.v1.FabricLootSupplierBuilder
 import net.minecraft.loot.LootManager
 import net.minecraft.loot.LootTable
 import net.minecraft.resource.ResourceManager
@@ -14,13 +13,13 @@ fun interface SecondaryLootTableLoadingCallback {
         resourceManager: ResourceManager,
         manager: LootManager,
         id: Identifier,
-        supplier: FabricLootSupplierBuilder,
+        supplier: LootTable.Builder,
         setter: LootTableSetter
     )
     companion object {
         val EVENT: Event<SecondaryLootTableLoadingCallback> = EventFactory.createArrayBacked(SecondaryLootTableLoadingCallback::class.java)
         { listeners: Array<SecondaryLootTableLoadingCallback> ->
-            SecondaryLootTableLoadingCallback { resourceManager: ResourceManager, manager: LootManager, id: Identifier, supplier: FabricLootSupplierBuilder, setter: LootTableSetter ->
+            SecondaryLootTableLoadingCallback { resourceManager: ResourceManager, manager: LootManager, id: Identifier, supplier: LootTable.Builder, setter: LootTableSetter ->
                 for (callback in listeners) {
                     callback.onLootTableLoading(resourceManager, manager, id, supplier, setter)
                 }

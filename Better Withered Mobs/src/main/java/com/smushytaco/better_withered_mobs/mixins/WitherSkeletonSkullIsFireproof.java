@@ -6,7 +6,6 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(Item.class)
-@SuppressWarnings("ConstantConditions")
 public abstract class WitherSkeletonSkullIsFireproof {
     @Inject(method = "isFireproof", at = @At("HEAD"), cancellable = true)
     private void hookIsFireproof(CallbackInfoReturnable<Boolean> cir) {

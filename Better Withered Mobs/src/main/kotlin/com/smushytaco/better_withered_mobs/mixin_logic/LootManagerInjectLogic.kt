@@ -1,7 +1,7 @@
 package com.smushytaco.better_withered_mobs.mixin_logic
 import com.google.common.collect.ImmutableMap
 import com.smushytaco.better_withered_mobs.event.SecondaryLootTableLoadingCallback
-import net.fabricmc.fabric.api.loot.v1.FabricLootSupplierBuilder
+import net.fabricmc.fabric.api.loot.v2.FabricLootTableBuilder
 import net.minecraft.loot.LootManager
 import net.minecraft.loot.LootTable
 import net.minecraft.resource.ResourceManager
@@ -11,7 +11,7 @@ object LootManagerInjectLogic {
                                             lootManager: LootManager): Map<Identifier, LootTable> {
         val newSuppliers = hashMapOf<Identifier, LootTable>()
         tables.forEach { (id, supplier) ->
-            val builder = FabricLootSupplierBuilder.of(supplier)
+            val builder = FabricLootTableBuilder.copyOf(supplier)
             SecondaryLootTableLoadingCallback.EVENT.invoker().onLootTableLoading(manager, lootManager, id, builder) {
                 newSuppliers[id] = it
             }
