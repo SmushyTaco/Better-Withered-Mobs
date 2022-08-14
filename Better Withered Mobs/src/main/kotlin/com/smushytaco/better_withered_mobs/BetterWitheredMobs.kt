@@ -3,16 +3,14 @@ import com.smushytaco.better_withered_mobs.bone_meal.WitheredBoneMeal
 import com.smushytaco.better_withered_mobs.bone_meal.WitheredBoneMealDispenserBehavior
 import com.smushytaco.better_withered_mobs.configuration_support.ModConfiguration
 import com.smushytaco.better_withered_mobs.event.SecondaryLootTableLoadingCallback
-import com.smushytaco.better_withered_mobs.loot_table_modification.LootTableModificationSyntacticSugar.entries
 import com.smushytaco.better_withered_mobs.loot_table_modification.LootTableModificationSyntacticSugar.item
-import com.smushytaco.better_withered_mobs.loot_table_modification.LootTableModificationSyntacticSugar.pools
+import com.smushytaco.better_withered_mobs.loot_table_modification.LootTableModificationSyntacticSugar.tablePools
 import me.shedaniel.autoconfig.AutoConfig
 import me.shedaniel.autoconfig.annotation.Config
 import me.shedaniel.autoconfig.serializer.GsonConfigSerializer
 import net.fabricmc.api.ModInitializer
 import net.fabricmc.fabric.api.`object`.builder.v1.block.FabricBlockSettings
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder
-import net.fabricmc.fabric.api.loot.v1.FabricLootPoolBuilder
 import net.minecraft.block.*
 import net.minecraft.item.BlockItem
 import net.minecraft.item.Item
@@ -64,7 +62,7 @@ object BetterWitheredMobs : ModInitializer {
                     lootPoolsToRemove.forEach { lootPool ->
                         val lootPoolListClone = lootManager.getTable(id).pools.toMutableList()
                         lootPoolListClone.removeAll { it == lootPool }
-                        lootManager.getTable(id).pools = lootPoolListClone.toTypedArray()
+                        lootManager.getTable(id).tablePools = lootPoolListClone.toTypedArray()
                     }
                 }
                 // Adds Withered Bone Drops
@@ -72,12 +70,12 @@ object BetterWitheredMobs : ModInitializer {
                     SetCountLootFunction.builder(UniformLootNumberProvider.create(0.0F, 2.0F))
                 val lootFunctionTwo =
                     LootingEnchantLootFunction.builder(UniformLootNumberProvider.create(0.0F, 1.0F))
-                val poolBuilder = FabricLootPoolBuilder.builder()
+                val poolBuilder = LootPool.builder()
                     .rolls(ConstantLootNumberProvider.create(1.0F))
                     .with(ItemEntry.builder(WITHERED_BONE).apply(lootFunctionOne)).apply(lootFunctionTwo)
                 val lootPoolListClone = lootManager.getTable(id).pools.toMutableList()
                 lootPoolListClone.add(poolBuilder.build())
-                lootManager.getTable(id).pools = lootPoolListClone.toTypedArray()
+                lootManager.getTable(id).tablePools = lootPoolListClone.toTypedArray()
                 // This applies changes to loot table.
                 setter.set(lootManager.getTable(id))
             }

@@ -5,6 +5,7 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.mob.AbstractSkeletonEntity;
 import net.minecraft.entity.mob.WitherSkeletonEntity;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
@@ -17,7 +18,7 @@ public abstract class WitherSkeletonEntityInitEquipment extends AbstractSkeleton
         super(entityType, world);
     }
     @Inject(method = "initEquipment", at = @At("TAIL"))
-    protected void addWitheringStoneSword(LocalDifficulty difficulty, CallbackInfo ci) {
+    protected void addWitheringStoneSword(Random random, LocalDifficulty localDifficulty, CallbackInfo ci) {
         if (!BetterWitheredMobs.INSTANCE.getConfig().getWitherSkeletonsSpawnWithWitheringEnchantedStoneSwords()) return;
         this.equipStack(EquipmentSlot.MAINHAND,
                 WitherSkeletonEntityInitEquipmentLogic.INSTANCE.stoneSwordWithWitheringEnchantment());
