@@ -1,0 +1,21 @@
+{
+  "text.autoconfig.better_withered_mobs.title": "Ajustes de Better Withered Mobs",
+  "text.autoconfig.better_withered_mobs.option.witherSkeletonsSpawnWithWitheringEnchantedStoneSwords": "Aplicar el encantamiento descomposición para las espadas de los esqueletos Wither",
+  "text.autoconfig.better_withered_mobs.option.witheredMobsDontDropRegularBones": "Obtener huesos y polvo de hueso descompuestos de las entidades con el efecto descomposición aplicado",
+  "text.autoconfig.better_withered_mobs.option.witheringEnchantmentCanBeAnviledOntoAxes": "Encantamiento compatible con hachas",
+  "text.autoconfig.better_withered_mobs.option.witheringEnchantmentCanBeAnviledOntoTridents": "Encantamiento compatible con tridentes",
+  "text.autoconfig.better_withered_mobs.option.maximumLevelForWitheringEnchantment": "Nivel máximo del encantamiento",
+  "text.autoconfig.better_withered_mobs.option.tickMultiplierForWitheringEnchantment": "Velocidad aplicable del encantamiento (en ticks)",
+
+  "enchantment.better_withered_mobs.withering.desc": "Aplica el efecto de descomposición.",
+
+  "itemGroup.better_withered_mobs.items": "Better Withered Mobs",
+  "item.better_withered_mobs.withered_bone": "Hueso descompuesto",
+  "item.better_withered_mobs.withered_bone_meal": "Polvo de hueso descompuesto",
+  "block.better_withered_mobs.withered_bone_block": "Bloque de huesos descompuestos",
+  "item.minecraft.potion.effect.potion_of_decay": "Poción de descomposición",
+  "item.minecraft.splash_potion.effect.potion_of_decay": "Poción arrojadiza de descomposición",
+  "item.minecraft.tipped_arrow.effect.potion_of_decay": "Flecha de descomposición",
+  "item.minecraft.lingering_potion.effect.potion_of_decay": "Poción de descomposición persistente",
+  "enchantment.better_withered_mobs.withering": "Descomposición"
+}
