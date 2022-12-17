@@ -5,9 +5,10 @@ import net.minecraft.entity.effect.StatusEffects
 import net.minecraft.item.Items
 import net.minecraft.potion.Potion
 import net.minecraft.potion.Potions
-import net.minecraft.util.registry.Registry
+import net.minecraft.registry.Registries
+import net.minecraft.registry.Registry
 object PotionOfDecay {
-    private fun register(name: String, potion: Potion): Potion = Registry.register(Registry.POTION, name, potion)
+    private fun register(name: String, potion: Potion): Potion = Registry.register(Registries.POTION, name, potion)
     fun createPotionRecipes() {
         BrewingRecipeRegistryAccessor.invokeRegisterPotionRecipe(Potions.AWKWARD, Items.WITHER_ROSE, POTION_OF_DECAY)
         BrewingRecipeRegistryAccessor.invokeRegisterPotionRecipe(POTION_OF_DECAY, Items.REDSTONE, LONG_POTION_OF_DECAY)

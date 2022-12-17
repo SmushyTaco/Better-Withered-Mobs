@@ -5,19 +5,19 @@ import net.minecraft.item.ItemUsageContext
 import net.minecraft.util.ActionResult
 import kotlin.random.Random
 class WitheredBoneMeal(settings: Settings) : Item(settings) {
-    override fun useOnBlock(itemUsageContext_1: ItemUsageContext): ActionResult {
-        return if (itemUsageContext_1.world.getBlockState(itemUsageContext_1.blockPos).block == Blocks.WARPED_NYLIUM && itemUsageContext_1.world.getBlockState(itemUsageContext_1.blockPos.up()).block == Blocks.AIR ||
-            itemUsageContext_1.world.getBlockState(itemUsageContext_1.blockPos).block == Blocks.CRIMSON_NYLIUM && itemUsageContext_1.world.getBlockState(itemUsageContext_1.blockPos.up()).block == Blocks.AIR
+    override fun useOnBlock(context: ItemUsageContext): ActionResult {
+        return if (context.world.getBlockState(context.blockPos).block == Blocks.WARPED_NYLIUM && context.world.getBlockState(context.blockPos.up()).block == Blocks.AIR ||
+            context.world.getBlockState(context.blockPos).block == Blocks.CRIMSON_NYLIUM && context.world.getBlockState(context.blockPos.up()).block == Blocks.AIR
         ) {
             when(Random.nextInt(11)) {
-                in 0..2 -> itemUsageContext_1.world.setBlockState(itemUsageContext_1.blockPos.up(), Blocks.WARPED_FUNGUS.defaultState)
-                in 3..4 -> itemUsageContext_1.world.setBlockState(itemUsageContext_1.blockPos.up(), Blocks.BROWN_MUSHROOM.defaultState)
-                in 5..7 -> itemUsageContext_1.world.setBlockState(itemUsageContext_1.blockPos.up(), Blocks.CRIMSON_FUNGUS.defaultState)
-                in 8..9 -> itemUsageContext_1.world.setBlockState(itemUsageContext_1.blockPos.up(), Blocks.RED_MUSHROOM.defaultState)
-                10 -> itemUsageContext_1.world.setBlockState(itemUsageContext_1.blockPos.up(), Blocks.WITHER_ROSE.defaultState)
-                else -> itemUsageContext_1.world.setBlockState(itemUsageContext_1.blockPos.up(), Blocks.WITHER_ROSE.defaultState)
+                in 0..2 -> context.world.setBlockState(context.blockPos.up(), Blocks.WARPED_FUNGUS.defaultState)
+                in 3..4 -> context.world.setBlockState(context.blockPos.up(), Blocks.BROWN_MUSHROOM.defaultState)
+                in 5..7 -> context.world.setBlockState(context.blockPos.up(), Blocks.CRIMSON_FUNGUS.defaultState)
+                in 8..9 -> context.world.setBlockState(context.blockPos.up(), Blocks.RED_MUSHROOM.defaultState)
+                10 -> context.world.setBlockState(context.blockPos.up(), Blocks.WITHER_ROSE.defaultState)
+                else -> context.world.setBlockState(context.blockPos.up(), Blocks.WITHER_ROSE.defaultState)
             }
-            itemUsageContext_1.stack.decrement(1)
+            context.stack.decrement(1)
             ActionResult.SUCCESS
         } else {
             ActionResult.FAIL

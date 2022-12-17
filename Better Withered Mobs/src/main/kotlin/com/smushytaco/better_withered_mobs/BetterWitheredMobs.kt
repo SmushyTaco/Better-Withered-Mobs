@@ -9,8 +9,9 @@ import me.shedaniel.autoconfig.AutoConfig
 import me.shedaniel.autoconfig.annotation.Config
 import me.shedaniel.autoconfig.serializer.GsonConfigSerializer
 import net.fabricmc.api.ModInitializer
+import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents
 import net.fabricmc.fabric.api.`object`.builder.v1.block.FabricBlockSettings
-import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder
 import net.minecraft.block.*
 import net.minecraft.item.BlockItem
 import net.minecraft.item.Item
@@ -22,9 +23,11 @@ import net.minecraft.loot.function.LootingEnchantLootFunction
 import net.minecraft.loot.function.SetCountLootFunction
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider
 import net.minecraft.loot.provider.number.UniformLootNumberProvider
+import net.minecraft.registry.Registries
+import net.minecraft.registry.Registry
 import net.minecraft.sound.BlockSoundGroup
+import net.minecraft.text.Text
 import net.minecraft.util.Identifier
-import net.minecraft.util.registry.Registry
 object BetterWitheredMobs : ModInitializer {
     const val MOD_ID = "better_withered_mobs"
     lateinit var config: ModConfiguration
@@ -37,12 +40,15 @@ object BetterWitheredMobs : ModInitializer {
         }
         config = AutoConfig.getConfigHolder(ModConfiguration::class.java).config
 
-        Registry.register(Registry.BLOCK, Identifier(MOD_ID, "withered_bone_block"), WITHERED_BONE_BLOCK)
-        Registry.register(Registry.ITEM, Identifier(MOD_ID, "withered_bone_block"), BlockItem(WITHERED_BONE_BLOCK, Item.Settings().fireproof().group(BETTER_WITHERED_MOBS_GROUP)))
-        Registry.register(Registry.ITEM, Identifier(MOD_ID, "withered_bone"), WITHERED_BONE)
-        Registry.register(Registry.ITEM, Identifier(MOD_ID, "withered_bone_meal"), WITHERED_BONE_MEAL)
+        Registry.register(Registries.BLOCK, Identifier(MOD_ID, "withered_bone_block"), WITHERED_BONE_BLOCK)
+        val witheredBoneBlockItem = Registry.register(Registries.ITEM, Identifier(MOD_ID, "withered_bone_block"), BlockItem(WITHERED_BONE_BLOCK, Item.Settings().fireproof()))
+        ItemGroupEvents.modifyEntriesEvent(BETTER_WITHERED_MOBS_GROUP).register(ItemGroupEvents.ModifyEntries { it.add(witheredBoneBlockItem) })
+        Registry.register(Registries.ITEM, Identifier(MOD_ID, "withered_bone"), WITHERED_BONE)
+        ItemGroupEvents.modifyEntriesEvent(BETTER_WITHERED_MOBS_GROUP).register(ItemGroupEvents.ModifyEntries { it.add(WITHERED_BONE) })
+        Registry.register(Registries.ITEM, Identifier(MOD_ID, "withered_bone_meal"), WITHERED_BONE_MEAL)
+        ItemGroupEvents.modifyEntriesEvent(BETTER_WITHERED_MOBS_GROUP).register(ItemGroupEvents.ModifyEntries { it.add(WITHERED_BONE_MEAL) })
         DispenserBlock.registerBehavior(WITHERED_BONE_MEAL, WitheredBoneMealDispenserBehavior)
-        Registry.register(Registry.ENCHANTMENT, Identifier(MOD_ID, "withering"), WITHERING_ENCHANTMENT)
+        Registry.register(Registries.ENCHANTMENT, Identifier(MOD_ID, "withering"), WITHERING_ENCHANTMENT)
         SecondaryLootTableLoadingCallback.EVENT.register(SecondaryLootTableLoadingCallback { _, lootManager, id, _, setter ->
             if ("minecraft:entities/wither_skeleton" == id.toString() ||
                 "betternether:entities/naga" == id.toString() ||
@@ -52,8 +58,8 @@ object BetterWitheredMobs : ModInitializer {
                     val lootPoolsToRemove = arrayListOf<LootPool>()
                     lootManager.getTable(id).pools.forEach { lootPool ->
                         lootPool.entries.forEach { lootPoolEntry ->
-                            if (lootPoolEntry is ItemEntry && Registry.ITEM.getRawId(lootPoolEntry.item) ==
-                                Registry.ITEM.getRawId(Items.BONE)
+                            if (lootPoolEntry is ItemEntry && Registries.ITEM.getRawId(lootPoolEntry.item) ==
+                                Registries.ITEM.getRawId(Items.BONE)
                             ) {
                                 lootPoolsToRemove.add(lootPool)
                             }
@@ -82,10 +88,9 @@ object BetterWitheredMobs : ModInitializer {
         })
     }
     val WITHERING_ENCHANTMENT = WitheringEnchantment()
-    private val BETTER_WITHERED_MOBS_GROUP = FabricItemGroupBuilder
-        .build(Identifier(MOD_ID, "items")) { ItemStack(WITHERED_BONE_BLOCK) }
-    private val WITHERED_BONE_MEAL = WitheredBoneMeal(Item.Settings().fireproof().group(BETTER_WITHERED_MOBS_GROUP))
-    private val WITHERED_BONE = Item(Item.Settings().fireproof().group(BETTER_WITHERED_MOBS_GROUP))
+    private val BETTER_WITHERED_MOBS_GROUP = FabricItemGroup.builder(Identifier(MOD_ID, MOD_ID)).displayName(Text.literal("Better Withered Mobs")).icon { ItemStack(WITHERED_BONE_BLOCK) }.build()
+    private val WITHERED_BONE_MEAL = WitheredBoneMeal(Item.Settings().fireproof())
+    private val WITHERED_BONE = Item(Item.Settings().fireproof())
     private val WITHERED_BONE_BLOCK = PillarBlock(FabricBlockSettings.of(Material.STONE, MapColor.PALE_YELLOW)
         .requiresTool().strength(2.0F).sounds(BlockSoundGroup.BONE))
 }

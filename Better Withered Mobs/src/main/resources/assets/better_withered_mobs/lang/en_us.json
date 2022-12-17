@@ -9,7 +9,7 @@
 
   "enchantment.better_withered_mobs.withering.desc": "The Withering enchantment makes it so when you hit a mob they get the withering effect. Every level of the Withering enchantment increases the withering duration on the hit mob by 3 seconds and increases the amplifier by 1. The enchantment is able to be modified in the config!",
 
-  "itemGroup.better_withered_mobs.items": "Better Withered Mobs",
+  "itemGroup.better_withered_mobs.better_withered_mobs": "Better Withered Mobs",
   "item.better_withered_mobs.withered_bone": "Withered Bone",
   "item.better_withered_mobs.withered_bone_meal": "Withered Bone Meal",
   "block.better_withered_mobs.withered_bone_block": "Withered Bone Block",

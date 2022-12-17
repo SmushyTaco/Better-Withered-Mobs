@@ -1,7 +1,7 @@
 {
   "required": true,
   "package": "com.smushytaco.better_withered_mobs.mixins",
-  "compatibilityLevel": "JAVA_17",
+  "compatibilityLevel": "JAVA_${java}",
   "mixins": [
     "BrewingRecipeRegistryAccessor",
     "ItemEntryItemAccessor",

@@ -7,8 +7,7 @@ import net.minecraft.loot.LootTable
 import net.minecraft.resource.ResourceManager
 import net.minecraft.util.Identifier
 object LootManagerInjectLogic {
-    fun invokeEarlyLootTableLoadingCallback(tables: Map<Identifier, LootTable>, manager: ResourceManager,
-                                            lootManager: LootManager): Map<Identifier, LootTable> {
+    fun invokeEarlyLootTableLoadingCallback(tables: Map<Identifier, LootTable>, manager: ResourceManager, lootManager: LootManager): Map<Identifier, LootTable> {
         val newSuppliers = hashMapOf<Identifier, LootTable>()
         tables.forEach { (id, supplier) ->
             val builder = FabricLootTableBuilder.copyOf(supplier)
