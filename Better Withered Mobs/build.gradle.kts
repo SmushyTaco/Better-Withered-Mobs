@@ -32,7 +32,7 @@ tasks {
     withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> { kotlinOptions { jvmTarget = javaVersion.toString() } }
     jar { from("LICENSE") { rename { "${it}_${base.archivesName.get()}" } } }
     processResources {
-        filesMatching("fabric.mod.json") { expand(mutableMapOf("version" to project.extra["mod_version"] as String, "fabricloader" to project.extra["loader_version"] as String, "fabric_api" to project.extra["fabric_version"] as String, "fabric_language_kotlin" to project.extra["fabric_language_kotlin_version"] as String, "minecraft" to project.extra["minecraft_version"] as String, "java" to project.extra["java_version"] as String, "modmenu" to project.extra["mod_menu_version"] as String, "clothconfig" to project.extra["cloth_config_version"] as String)) }
+        filesMatching("fabric.mod.json") { expand(mutableMapOf("version" to project.extra["mod_version"] as String, "fabricloader" to project.extra["loader_version"] as String, "fabric_api" to project.extra["fabric_version"] as String, "fabric_language_kotlin" to project.extra["fabric_language_kotlin_version"] as String, "minecraft" to project.extra["minecraft_version"] as String, "java" to project.extra["java_version"] as String, "modmenu" to project.extra["mod_menu_version"] as String, "clothconfig" to project.extra["cloth_config_version"] as String, "mixinextras" to project.extra["mixin_extras_version"] as String)) }
         filesMatching("*.mixins.json") { expand(mutableMapOf("java" to project.extra["java_version"] as String)) }
     }
     java {
