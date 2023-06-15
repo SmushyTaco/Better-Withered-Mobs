@@ -18,7 +18,7 @@ dependencies {
     modImplementation("net.fabricmc", "fabric-language-kotlin", project.extra["fabric_language_kotlin_version"] as String)
     modImplementation("com.terraformersmc", "modmenu", project.extra["mod_menu_version"] as String)
     modApi("me.shedaniel.cloth", "cloth-config-fabric", project.extra["cloth_config_version"] as String) { exclude("net.fabricmc.fabric-api") }
-    include(implementation("com.github.LlamaLad7", "MixinExtras", project.extra["mixin_extras_version"] as String))
+    include(modImplementation("com.github.LlamaLad7", "MixinExtras", project.extra["mixin_extras_version"] as String))
     annotationProcessor("com.github.LlamaLad7", "MixinExtras", project.extra["mixin_extras_version"] as String)
 }
 tasks {
