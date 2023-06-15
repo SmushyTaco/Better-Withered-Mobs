@@ -22,6 +22,12 @@
         "value": "com.smushytaco.better_withered_mobs.BetterWitheredMobs"
       }
     ],
+    "preLaunch": [
+      {
+        "adapter": "kotlin",
+        "value": "com.smushytaco.better_withered_mobs.BetterWitheredMobsPreLaunch"
+      }
+    ],
     "modmenu": [
       "com.smushytaco.better_withered_mobs.configuration_support.ModMenuIntegration"
     ]

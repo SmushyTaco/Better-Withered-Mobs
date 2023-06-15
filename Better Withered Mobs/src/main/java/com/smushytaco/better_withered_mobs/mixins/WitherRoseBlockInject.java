@@ -12,7 +12,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public abstract class WitherRoseBlockInject {
     @Inject(method = "canPlantOnTop", at = @At("HEAD"), cancellable = true)
     private void hookCanPlantOnTop(BlockState floor, BlockView world, BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
-        if (floor.isOf(Blocks.WARPED_NYLIUM) || floor.isOf(Blocks.CRIMSON_NYLIUM))
-            cir.setReturnValue(true);
+        if (floor.isOf(Blocks.WARPED_NYLIUM) || floor.isOf(Blocks.CRIMSON_NYLIUM)) cir.setReturnValue(true);
     }
 }

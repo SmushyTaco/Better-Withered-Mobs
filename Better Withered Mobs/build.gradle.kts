@@ -8,6 +8,7 @@ group = project.extra["maven_group"] as String
 repositories {
     maven("https://maven.shedaniel.me/")
     maven("https://maven.terraformersmc.com/")
+    maven("https://jitpack.io")
 }
 dependencies {
     minecraft("com.mojang", "minecraft", project.extra["minecraft_version"] as String)
@@ -17,6 +18,8 @@ dependencies {
     modImplementation("net.fabricmc", "fabric-language-kotlin", project.extra["fabric_language_kotlin_version"] as String)
     modImplementation("com.terraformersmc", "modmenu", project.extra["mod_menu_version"] as String)
     modApi("me.shedaniel.cloth", "cloth-config-fabric", project.extra["cloth_config_version"] as String) { exclude("net.fabricmc.fabric-api") }
+    include(implementation("com.github.LlamaLad7", "MixinExtras", project.extra["mixin_extras_version"] as String))
+    annotationProcessor("com.github.LlamaLad7", "MixinExtras", project.extra["mixin_extras_version"] as String)
 }
 tasks {
     val javaVersion = JavaVersion.toVersion((project.extra["java_version"] as String).toInt())
