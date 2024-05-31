@@ -11,6 +11,7 @@
     }
   },
   "result": {
-    "item": "better_withered_mobs:withered_bone_block"
+    "id": "better_withered_mobs:withered_bone_block",
+    "count": 1
   }
 }

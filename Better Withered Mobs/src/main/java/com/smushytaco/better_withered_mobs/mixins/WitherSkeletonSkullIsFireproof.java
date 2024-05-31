@@ -1,12 +1,16 @@
 package com.smushytaco.better_withered_mobs.mixins;
-import com.llamalad7.mixinextras.injector.ModifyReturnValue;
-import net.minecraft.item.Item;
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
+import net.minecraft.component.DataComponentType;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.util.Unit;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
-@Mixin(Item.class)
+@Mixin(ItemStack.class)
 public abstract class WitherSkeletonSkullIsFireproof {
-    @ModifyReturnValue(method = "isFireproof", at = @At("RETURN"))
-    @SuppressWarnings({"unused", "RedundantCast"})
-    private boolean hookIsFireproof(boolean original) { return original || ((Item) (Object) this) == Items.WITHER_SKELETON_SKULL; }
+    @WrapOperation(method = "takesDamageFrom", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/ItemStack;contains(Lnet/minecraft/component/DataComponentType;)Z"))
+    private boolean hookIsFireproof(ItemStack instance, DataComponentType<Unit> dataComponentType, Operation<Boolean> original) {
+        return instance.getItem() == Items.WITHER_SKELETON_SKULL || original.call(instance, dataComponentType);
+    }
 }

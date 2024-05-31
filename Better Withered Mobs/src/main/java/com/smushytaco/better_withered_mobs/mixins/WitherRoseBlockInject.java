@@ -10,6 +10,5 @@ import org.spongepowered.asm.mixin.injection.At;
 @Mixin(WitherRoseBlock.class)
 public abstract class WitherRoseBlockInject {
     @ModifyReturnValue(method = "canPlantOnTop", at = @At("RETURN"))
-    @SuppressWarnings("unused")
     private boolean hookCanPlantOnTop(boolean original, BlockState floor, BlockView world, BlockPos pos) { return original || floor.isOf(Blocks.WARPED_NYLIUM) || floor.isOf(Blocks.CRIMSON_NYLIUM); }
 }

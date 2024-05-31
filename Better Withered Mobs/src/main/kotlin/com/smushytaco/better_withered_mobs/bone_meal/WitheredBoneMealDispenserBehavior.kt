@@ -7,7 +7,7 @@ import net.minecraft.util.math.BlockPointer
 import net.minecraft.util.math.Direction
 object WitheredBoneMealDispenserBehavior : FallibleItemDispenserBehavior() {
     override fun dispenseSilently(pointer: BlockPointer, itemStack: ItemStack): ItemStack {
-        val direction: Direction = pointer.blockState[DispenserBlock.FACING]
+        val direction: Direction = pointer.state[DispenserBlock.FACING]
         isSuccess = false
         if (pointer.world.getBlockState(pointer.pos.offset(direction).down()).block == Blocks.WARPED_NYLIUM && pointer.world.getBlockState(pointer.pos.offset(direction)).block == Blocks.AIR ||
             pointer.world.getBlockState(pointer.pos.offset(direction).down()).block == Blocks.CRIMSON_NYLIUM && pointer.world.getBlockState(pointer.pos.offset(direction)).block == Blocks.AIR

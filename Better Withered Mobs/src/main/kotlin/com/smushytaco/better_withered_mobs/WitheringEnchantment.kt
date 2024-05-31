@@ -1,6 +1,5 @@
 package com.smushytaco.better_withered_mobs
 import net.minecraft.enchantment.Enchantment
-import net.minecraft.enchantment.EnchantmentTarget
 import net.minecraft.entity.Entity
 import net.minecraft.entity.EquipmentSlot
 import net.minecraft.entity.LivingEntity
@@ -9,9 +8,8 @@ import net.minecraft.entity.effect.StatusEffects.WITHER
 import net.minecraft.item.AxeItem
 import net.minecraft.item.ItemStack
 import net.minecraft.item.TridentItem
-class WitheringEnchantment: Enchantment(Rarity.VERY_RARE, EnchantmentTarget.WEAPON, arrayOf(EquipmentSlot.MAINHAND)) {
-    override fun getMinLevel() = 1
-    override fun getMaxLevel() = BetterWitheredMobs.config.maximumLevelForWitheringEnchantment.coerceAtLeast(1)
+import net.minecraft.registry.tag.ItemTags
+object WitheringEnchantment: Enchantment(properties(ItemTags.WEAPON_ENCHANTABLE, ItemTags.SWORD_ENCHANTABLE, 1, BetterWitheredMobs.config.maximumLevelForWitheringEnchantment.coerceAtLeast(1), leveledCost(1, 11), leveledCost(21, 11), 1, EquipmentSlot.MAINHAND)) {
     override fun onTargetDamaged(user: LivingEntity, target: Entity, level: Int) {
         if (target is LivingEntity) target.addStatusEffect(StatusEffectInstance(WITHER, (BetterWitheredMobs.config.tickMultiplierForWitheringEnchantment.coerceAtLeast(1) * level).coerceAtLeast(1), level - 1))
         super.onTargetDamaged(user, target, level)

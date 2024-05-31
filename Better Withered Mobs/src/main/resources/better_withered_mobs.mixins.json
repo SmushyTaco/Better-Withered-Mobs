@@ -3,9 +3,7 @@
   "package": "com.smushytaco.better_withered_mobs.mixins",
   "compatibilityLevel": "JAVA_${java}",
   "mixins": [
-    "BrewingRecipeRegistryAccessor",
     "ItemEntryItemAccessor",
-    "LootManagerInject",
     "LootTablePoolsAccessor",
     "WitherRoseBlockInject",
     "WitherSkeletonEntityInitEquipment",
