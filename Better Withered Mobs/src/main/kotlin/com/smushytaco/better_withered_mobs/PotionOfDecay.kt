@@ -10,7 +10,7 @@ import net.minecraft.registry.Registry
 import net.minecraft.registry.entry.RegistryEntry
 import net.minecraft.util.Identifier
 object PotionOfDecay {
-    private fun register(name: String, potion: Potion): RegistryEntry<Potion> = Registry.registerReference(Registries.POTION, Identifier(BetterWitheredMobs.MOD_ID, name), potion)
+    private fun register(name: String, potion: Potion): RegistryEntry<Potion> = Registry.registerReference(Registries.POTION, Identifier.of(BetterWitheredMobs.MOD_ID, name), potion)
     fun registerPotions() {
         POTION_OF_DECAY = register("potion_of_decay", Potion(StatusEffectInstance(StatusEffects.WITHER, 3600)))
         LONG_POTION_OF_DECAY = register("long_potion_of_decay", Potion("potion_of_decay", StatusEffectInstance(StatusEffects.WITHER, 9600)))

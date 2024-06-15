@@ -6,7 +6,6 @@
     "ItemEntryItemAccessor",
     "LootTablePoolsAccessor",
     "WitherRoseBlockInject",
-    "WitherSkeletonEntityInitEquipment",
     "WitherSkeletonSkullIsFireproof"
   ],
   "injectors": {

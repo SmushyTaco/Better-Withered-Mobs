@@ -3,7 +3,7 @@
   "id": "better_withered_mobs",
   "version": "${version}",
   "name": "Better Withered Mobs",
-  "description": "This mod adds Withered Bones, Withered Bone Meal, Withered Bone Blocks, a Potion of Decay, and a Withering enchantment! Wither Skeletons spawn with swords with the Withering enchantment of a random level (This can be disabled in the config). Withered mobs no longer drop regular Bones and only drop Withered Bones (This can be disabled in the config).",
+  "description": "This mod adds Withered Bones, Withered Bone Meal, Withered Bone Blocks, and a Potion of Decay! Withered mobs no longer drop regular Bones and only drop Withered Bones (This can be disabled in the config).",
   "authors": [
     "SmushyTaco"
   ],
