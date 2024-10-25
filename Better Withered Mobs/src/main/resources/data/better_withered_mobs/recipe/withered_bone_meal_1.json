@@ -1,9 +1,7 @@
 {
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
-    {
-      "item": "better_withered_mobs:withered_bone"
-    }
+    "better_withered_mobs:withered_bone"
   ],
   "result": {
     "id": "better_withered_mobs:withered_bone_meal",
