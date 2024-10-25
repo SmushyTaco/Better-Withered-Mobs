@@ -39,13 +39,13 @@ object BetterWitheredMobs : ModInitializer {
         FabricBrewingRecipeRegistryBuilder.BUILD.register { builder ->
             PotionOfDecay.createPotionRecipes(builder)
         }
-        Registry.register(Registries.BLOCK, Identifier.of(MOD_ID, "withered_bone_block"), WITHERED_BONE_BLOCK)
-        val witheredBoneBlockItem = Registry.register(Registries.ITEM, Identifier.of(MOD_ID, "withered_bone_block"), BlockItem(WITHERED_BONE_BLOCK, Item.Settings().fireproof()))
+        Registry.register(Registries.BLOCK, WITHERED_BONE_BLOCK_IDENTIFIER, WITHERED_BONE_BLOCK)
+        val witheredBoneBlockItem = Registry.register(Registries.ITEM, WITHERED_BONE_BLOCK_IDENTIFIER, BlockItem(WITHERED_BONE_BLOCK, Item.Settings().fireproof().useBlockPrefixedTranslationKey().registryKey(RegistryKey.of(RegistryKeys.ITEM, WITHERED_BONE_BLOCK_IDENTIFIER))))
         Registry.register(Registries.ITEM_GROUP, BETTER_WITHERED_MOBS_GROUP, FabricItemGroup.builder().displayName(Text.literal("Better Withered Mobs")).icon { ItemStack(WITHERED_BONE_BLOCK) }.build())
         ItemGroupEvents.modifyEntriesEvent(BETTER_WITHERED_MOBS_GROUP).register(ItemGroupEvents.ModifyEntries { it.add(witheredBoneBlockItem) })
-        Registry.register(Registries.ITEM, Identifier.of(MOD_ID, "withered_bone"), WITHERED_BONE)
+        Registry.register(Registries.ITEM, WITHERED_BONE_IDENTIFIER, WITHERED_BONE)
         ItemGroupEvents.modifyEntriesEvent(BETTER_WITHERED_MOBS_GROUP).register(ItemGroupEvents.ModifyEntries { it.add(WITHERED_BONE) })
-        Registry.register(Registries.ITEM, Identifier.of(MOD_ID, "withered_bone_meal"), WITHERED_BONE_MEAL)
+        Registry.register(Registries.ITEM, WITHERED_BONE_MEAL_IDENTIFIER, WITHERED_BONE_MEAL)
         ItemGroupEvents.modifyEntriesEvent(BETTER_WITHERED_MOBS_GROUP).register(ItemGroupEvents.ModifyEntries { it.add(WITHERED_BONE_MEAL) })
         DispenserBlock.registerBehavior(WITHERED_BONE_MEAL, WitheredBoneMealDispenserBehavior)
         LootTableEvents.MODIFY.register { registryKey, builder, _, _ ->
@@ -66,7 +66,10 @@ object BetterWitheredMobs : ModInitializer {
         }
     }
     private val BETTER_WITHERED_MOBS_GROUP = RegistryKey.of(RegistryKeys.ITEM_GROUP, Identifier.of(MOD_ID, MOD_ID))
-    private val WITHERED_BONE_MEAL = WitheredBoneMeal(Item.Settings().fireproof())
-    private val WITHERED_BONE = Item(Item.Settings().fireproof())
-    private val WITHERED_BONE_BLOCK = PillarBlock(AbstractBlock.Settings.create().mapColor(MapColor.BLACK).instrument(NoteBlockInstrument.XYLOPHONE).requiresTool().strength(2.0F).sounds(BlockSoundGroup.BONE))
+    private val WITHERED_BONE_MEAL_IDENTIFIER = Identifier.of(MOD_ID, "withered_bone_meal")
+    private val WITHERED_BONE_MEAL = WitheredBoneMeal(Item.Settings().fireproof().registryKey(RegistryKey.of(RegistryKeys.ITEM, WITHERED_BONE_MEAL_IDENTIFIER)))
+    private val WITHERED_BONE_IDENTIFIER = Identifier.of(MOD_ID, "withered_bone")
+    private val WITHERED_BONE = Item(Item.Settings().fireproof().registryKey(RegistryKey.of(RegistryKeys.ITEM, WITHERED_BONE_IDENTIFIER)))
+    private val WITHERED_BONE_BLOCK_IDENTIFIER = Identifier.of(MOD_ID, "withered_bone_block")
+    private val WITHERED_BONE_BLOCK = PillarBlock(AbstractBlock.Settings.create().mapColor(MapColor.BLACK).instrument(NoteBlockInstrument.XYLOPHONE).requiresTool().strength(2.0F).sounds(BlockSoundGroup.BONE).registryKey(RegistryKey.of(RegistryKeys.BLOCK, WITHERED_BONE_BLOCK_IDENTIFIER)))
 }

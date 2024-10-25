@@ -1,12 +1,8 @@
 {
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
-    {
-      "item": "minecraft:poppy"
-    },
-    {
-      "item": "better_withered_mobs:withered_bone_block"
-    }
+    "minecraft:poppy",
+    "better_withered_mobs:withered_bone_block"
   ],
   "result": {
     "id": "minecraft:wither_rose",

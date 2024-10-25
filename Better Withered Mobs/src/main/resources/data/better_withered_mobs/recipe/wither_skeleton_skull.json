@@ -6,9 +6,7 @@
     "WWW"
   ],
   "key": {
-    "W": {
-      "item": "better_withered_mobs:withered_bone_block"
-    }
+    "W": "better_withered_mobs:withered_bone_block"
   },
   "result": {
     "id": "minecraft:wither_skeleton_skull",

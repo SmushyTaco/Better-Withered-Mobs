@@ -6,9 +6,7 @@
     "WWW"
   ],
   "key": {
-    "W": {
-      "item": "better_withered_mobs:withered_bone_meal"
-    }
+    "W": "better_withered_mobs:withered_bone_meal"
   },
   "result": {
     "id": "better_withered_mobs:withered_bone_block",
