@@ -2,12 +2,8 @@ package com.smushytaco.better_withered_mobs
 import com.google.common.collect.ImmutableList
 import com.smushytaco.better_withered_mobs.bone_meal.WitheredBoneMeal
 import com.smushytaco.better_withered_mobs.bone_meal.WitheredBoneMealDispenserBehavior
-import com.smushytaco.better_withered_mobs.configuration_support.ModConfiguration
 import com.smushytaco.better_withered_mobs.mixins.ItemEntryItemAccessor
 import com.smushytaco.better_withered_mobs.mixins.LootTablePoolsAccessor
-import me.shedaniel.autoconfig.AutoConfig
-import me.shedaniel.autoconfig.annotation.Config
-import me.shedaniel.autoconfig.serializer.GsonConfigSerializer
 import net.fabricmc.api.ModInitializer
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents
@@ -28,13 +24,8 @@ import net.minecraft.text.Text
 import net.minecraft.util.Identifier
 object BetterWitheredMobs : ModInitializer {
     const val MOD_ID = "better_withered_mobs"
-    private lateinit var config: ModConfiguration
+    private val config = ModConfig.createAndLoad()
     override fun onInitialize() {
-        AutoConfig.register(ModConfiguration::class.java) { definition: Config, configClass: Class<ModConfiguration> ->
-            GsonConfigSerializer(definition, configClass)
-        }
-        config = AutoConfig.getConfigHolder(ModConfiguration::class.java).config
-
         PotionOfDecay.registerPotions()
         FabricBrewingRecipeRegistryBuilder.BUILD.register { builder ->
             PotionOfDecay.createPotionRecipes(builder)

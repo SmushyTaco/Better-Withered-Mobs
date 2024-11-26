@@ -1,8 +1,6 @@
 {
-  "text.autoconfig.better_withered_mobs.title": "Better Withered Mobs Configuration",
-  "text.autoconfig.better_withered_mobs.option.witheredMobsDontDropRegularBones": "Withered Mobs Don't Drop Regular Bones",
-
-  "enchantment.better_withered_mobs.withering.desc": "The Withering enchantment makes it so when you hit a mob they get the withering effect. Every level of the Withering enchantment increases the withering duration on the hit mob by 3 seconds and increases the amplifier by 1. The enchantment is able to be modified in the config!",
+  "text.config.better_withered_mobs.title": "Better Withered Mobs Configuration",
+  "text.config.better_withered_mobs.option.witheredMobsDontDropRegularBones": "Withered Mobs Don't Drop Regular Bones",
 
   "itemGroup.better_withered_mobs.better_withered_mobs": "Better Withered Mobs",
   "item.better_withered_mobs.withered_bone": "Withered Bone",
@@ -11,6 +9,5 @@
   "item.minecraft.potion.effect.potion_of_decay": "Potion of Decay",
   "item.minecraft.splash_potion.effect.potion_of_decay": "Splash Potion of Decay",
   "item.minecraft.tipped_arrow.effect.potion_of_decay": "Arrow of Decay",
-  "item.minecraft.lingering_potion.effect.potion_of_decay": "Lingering Potion of Decay",
-  "enchantment.better_withered_mobs.withering": "Withering"
+  "item.minecraft.lingering_potion.effect.potion_of_decay": "Lingering Potion of Decay"
 }
