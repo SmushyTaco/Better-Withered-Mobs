@@ -1,8 +1,7 @@
 {
-  "parent": "block/cube_bottom_top",
+  "parent": "minecraft:block/cube_column",
   "textures": {
-    "bottom": "better_withered_mobs:block/withered_bone_block_top_and_bottom",
-    "top": "better_withered_mobs:block/withered_bone_block_top_and_bottom",
+    "end": "better_withered_mobs:block/withered_bone_block_top_and_bottom",
     "side": "better_withered_mobs:block/withered_bone_block_sides"
   }
 }
