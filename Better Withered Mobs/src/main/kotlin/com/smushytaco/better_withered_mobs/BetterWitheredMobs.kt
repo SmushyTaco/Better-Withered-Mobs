@@ -14,8 +14,8 @@ import net.minecraft.core.registries.BuiltInRegistries
 import net.minecraft.core.registries.Registries
 import net.minecraft.data.registries.VanillaRegistries
 import net.minecraft.network.chat.Component
+import net.minecraft.resources.Identifier
 import net.minecraft.resources.ResourceKey
-import net.minecraft.resources.ResourceLocation
 import net.minecraft.world.item.BlockItem
 import net.minecraft.world.item.Item
 import net.minecraft.world.item.ItemStack
@@ -55,7 +55,7 @@ object BetterWitheredMobs : ModInitializer {
         DispenserBlock.registerBehavior(WITHERED_BONE_MEAL, WitheredBoneMealDispenserBehavior)
         LootTableEvents.MODIFY.register { registryKey, builder, _, _ ->
             builder as LootTablePoolsAccessor
-            if (registryKey.location() != ResourceLocation.fromNamespaceAndPath("minecraft", "entities/wither_skeleton") && registryKey.location() != ResourceLocation.fromNamespaceAndPath("betternether", "entities/naga") && registryKey.location() != ResourceLocation.fromNamespaceAndPath("betternether", "entities/skull")) return@register
+            if (registryKey.identifier() != Identifier.fromNamespaceAndPath("minecraft", "entities/wither_skeleton") && registryKey.identifier() != Identifier.fromNamespaceAndPath("betternether", "entities/naga") && registryKey.identifier() != Identifier.fromNamespaceAndPath("betternether", "entities/skull")) return@register
             val lootFunctionOne = SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 2.0F))
             val lootFunctionTwo = EnchantedCountIncreaseFunction.lootingMultiplier(VanillaRegistries.createLookup(), UniformGenerator.between(0.0F, 1.0F))
             val poolBuilder = LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(WITHERED_BONE).apply(lootFunctionOne)).apply(lootFunctionTwo)
@@ -71,15 +71,15 @@ object BetterWitheredMobs : ModInitializer {
             builder.pools = ImmutableList.builder<LootPool>().addAll(pools)
         }
     }
-    private val BETTER_WITHERED_MOBS_GROUP = ResourceKey.create(Registries.CREATIVE_MODE_TAB, ResourceLocation.fromNamespaceAndPath(MOD_ID, MOD_ID))
-    private val WITHERED_BONE_MEAL_IDENTIFIER = ResourceLocation.fromNamespaceAndPath(MOD_ID, "withered_bone_meal")
+    private val BETTER_WITHERED_MOBS_GROUP = ResourceKey.create(Registries.CREATIVE_MODE_TAB, Identifier.fromNamespaceAndPath(MOD_ID, MOD_ID))
+    private val WITHERED_BONE_MEAL_IDENTIFIER = Identifier.fromNamespaceAndPath(MOD_ID, "withered_bone_meal")
     private val WITHERED_BONE_MEAL = WitheredBoneMeal(
         Item.Properties().fireResistant().setId(
             ResourceKey.create(
                 Registries.ITEM, WITHERED_BONE_MEAL_IDENTIFIER)))
-    private val WITHERED_BONE_IDENTIFIER = ResourceLocation.fromNamespaceAndPath(MOD_ID, "withered_bone")
+    private val WITHERED_BONE_IDENTIFIER = Identifier.fromNamespaceAndPath(MOD_ID, "withered_bone")
     private val WITHERED_BONE = Item(Item.Properties().fireResistant().setId(ResourceKey.create(Registries.ITEM, WITHERED_BONE_IDENTIFIER)))
-    private val WITHERED_BONE_BLOCK_IDENTIFIER = ResourceLocation.fromNamespaceAndPath(MOD_ID, "withered_bone_block")
+    private val WITHERED_BONE_BLOCK_IDENTIFIER = Identifier.fromNamespaceAndPath(MOD_ID, "withered_bone_block")
     private val WITHERED_BONE_BLOCK = RotatedPillarBlock(
         BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).instrument(
             NoteBlockInstrument.XYLOPHONE).requiresCorrectToolForDrops().strength(2.0F).sound(SoundType.BONE_BLOCK).setId(
