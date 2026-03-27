@@ -5,10 +5,10 @@ import com.smushytaco.better_withered_mobs.bone_meal.WitheredBoneMealDispenserBe
 import com.smushytaco.better_withered_mobs.mixins.ItemEntryItemAccessor
 import com.smushytaco.better_withered_mobs.mixins.LootTablePoolsAccessor
 import net.fabricmc.api.ModInitializer
-import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents
+import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents
+import net.fabricmc.fabric.api.creativetab.v1.FabricCreativeModeTab
 import net.fabricmc.fabric.api.loot.v3.LootTableEvents
-import net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistryBuilder
+import net.fabricmc.fabric.api.registry.FabricPotionBrewingBuilder
 import net.minecraft.core.Registry
 import net.minecraft.core.registries.BuiltInRegistries
 import net.minecraft.core.registries.Registries
@@ -37,7 +37,7 @@ object BetterWitheredMobs : ModInitializer {
     private val config = ModConfig.createAndLoad()
     override fun onInitialize() {
         PotionOfDecay.registerPotions()
-        FabricBrewingRecipeRegistryBuilder.BUILD.register { builder ->
+        FabricPotionBrewingBuilder.BUILD.register { builder ->
             PotionOfDecay.createPotionRecipes(builder)
         }
         Registry.register(BuiltInRegistries.BLOCK, WITHERED_BONE_BLOCK_IDENTIFIER, WITHERED_BONE_BLOCK)
@@ -45,13 +45,13 @@ object BetterWitheredMobs : ModInitializer {
             BuiltInRegistries.ITEM, WITHERED_BONE_BLOCK_IDENTIFIER, BlockItem(WITHERED_BONE_BLOCK, Item.Properties().fireResistant().useBlockDescriptionPrefix().setId(
                 ResourceKey.create(Registries.ITEM, WITHERED_BONE_BLOCK_IDENTIFIER))))
         Registry.register(
-            BuiltInRegistries.CREATIVE_MODE_TAB, BETTER_WITHERED_MOBS_GROUP, FabricItemGroup.builder().title(
+            BuiltInRegistries.CREATIVE_MODE_TAB, BETTER_WITHERED_MOBS_GROUP, FabricCreativeModeTab.builder().title(
                 Component.literal("Better Withered Mobs")).icon { ItemStack(WITHERED_BONE_BLOCK) }.build())
-        ItemGroupEvents.modifyEntriesEvent(BETTER_WITHERED_MOBS_GROUP).register(ItemGroupEvents.ModifyEntries { it.accept(witheredBoneBlockItem) })
+        CreativeModeTabEvents.modifyOutputEvent(BETTER_WITHERED_MOBS_GROUP).register(CreativeModeTabEvents.ModifyOutput { it.accept(witheredBoneBlockItem) })
         Registry.register(BuiltInRegistries.ITEM, WITHERED_BONE_IDENTIFIER, WITHERED_BONE)
-        ItemGroupEvents.modifyEntriesEvent(BETTER_WITHERED_MOBS_GROUP).register(ItemGroupEvents.ModifyEntries { it.accept(WITHERED_BONE) })
+        CreativeModeTabEvents.modifyOutputEvent(BETTER_WITHERED_MOBS_GROUP).register(CreativeModeTabEvents.ModifyOutput { it.accept(WITHERED_BONE) })
         Registry.register(BuiltInRegistries.ITEM, WITHERED_BONE_MEAL_IDENTIFIER, WITHERED_BONE_MEAL)
-        ItemGroupEvents.modifyEntriesEvent(BETTER_WITHERED_MOBS_GROUP).register(ItemGroupEvents.ModifyEntries { it.accept(WITHERED_BONE_MEAL) })
+        CreativeModeTabEvents.modifyOutputEvent(BETTER_WITHERED_MOBS_GROUP).register(CreativeModeTabEvents.ModifyOutput { it.accept(WITHERED_BONE_MEAL) })
         DispenserBlock.registerBehavior(WITHERED_BONE_MEAL, WitheredBoneMealDispenserBehavior)
         LootTableEvents.MODIFY.register { registryKey, builder, _, _ ->
             builder as LootTablePoolsAccessor
