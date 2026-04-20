@@ -12,7 +12,6 @@ import net.fabricmc.fabric.api.registry.FabricPotionBrewingBuilder
 import net.minecraft.core.Registry
 import net.minecraft.core.registries.BuiltInRegistries
 import net.minecraft.core.registries.Registries
-import net.minecraft.data.registries.VanillaRegistries
 import net.minecraft.network.chat.Component
 import net.minecraft.resources.Identifier
 import net.minecraft.resources.ResourceKey
@@ -53,11 +52,11 @@ object BetterWitheredMobs : ModInitializer {
         Registry.register(BuiltInRegistries.ITEM, WITHERED_BONE_MEAL_IDENTIFIER, WITHERED_BONE_MEAL)
         CreativeModeTabEvents.modifyOutputEvent(BETTER_WITHERED_MOBS_GROUP).register(CreativeModeTabEvents.ModifyOutput { it.accept(WITHERED_BONE_MEAL) })
         DispenserBlock.registerBehavior(WITHERED_BONE_MEAL, WitheredBoneMealDispenserBehavior)
-        LootTableEvents.MODIFY.register { registryKey, builder, _, _ ->
+        LootTableEvents.MODIFY.register { registryKey, builder, _, holder ->
             builder as LootTablePoolsAccessor
             if (registryKey.identifier() != Identifier.fromNamespaceAndPath("minecraft", "entities/wither_skeleton") && registryKey.identifier() != Identifier.fromNamespaceAndPath("betternether", "entities/naga") && registryKey.identifier() != Identifier.fromNamespaceAndPath("betternether", "entities/skull")) return@register
             val lootFunctionOne = SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 2.0F))
-            val lootFunctionTwo = EnchantedCountIncreaseFunction.lootingMultiplier(VanillaRegistries.createLookup(), UniformGenerator.between(0.0F, 1.0F))
+            val lootFunctionTwo = EnchantedCountIncreaseFunction.lootingMultiplier(holder, UniformGenerator.between(0.0F, 1.0F))
             val poolBuilder = LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(WITHERED_BONE).apply(lootFunctionOne)).apply(lootFunctionTwo)
             builder.withPool(poolBuilder)
             if (!config.witheredMobsDontDropRegularBones) return@register
