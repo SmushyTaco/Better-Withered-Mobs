@@ -10,5 +10,5 @@ import org.spongepowered.asm.mixin.injection.At;
 @Mixin(WitherRoseBlock.class)
 public abstract class WitherRoseBlockInject {
     @ModifyReturnValue(method = "mayPlaceOn", at = @At("RETURN"))
-    private boolean hookCanPlantOnTop(boolean original, BlockState floor, BlockGetter world, BlockPos pos) { return original || floor.is(Blocks.WARPED_NYLIUM) || floor.is(Blocks.CRIMSON_NYLIUM); }
+    private boolean hookCanPlantOnTop(boolean original, BlockState state, BlockGetter level, BlockPos pos) { return original || state.is(Blocks.WARPED_NYLIUM) || state.is(Blocks.CRIMSON_NYLIUM); }
 }
